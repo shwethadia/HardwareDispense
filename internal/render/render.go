@@ -8,8 +8,9 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/shwethadia/BOOKINGAPI/pkg/config"
-	"github.com/shwethadia/BOOKINGAPI/pkg/models"
+	"github.com/justinas/nosurf"
+	"github.com/shwethadia/BOOKINGAPI/internal/config"
+	"github.com/shwethadia/BOOKINGAPI/internal/models"
 )
 
 var functions = template.FuncMap{}
@@ -24,12 +25,14 @@ func NewTemplates(a *config.AppConfig) {
 }
 
 //AddDefaultData ...
-func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+func AddDefaultData(td *models.TemplateData,r *http.Request) *models.TemplateData {
+
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
 //RenderTemplate ...
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter,r *http.Request, tmpl string, td *models.TemplateData) {
 
 	var tc map[string]*template.Template
 	if app.UseCache {
@@ -45,7 +48,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 
 	buf := new(bytes.Buffer)
 
-	td = AddDefaultData(td)
+	td = AddDefaultData(td,r)
 	_ = t.Execute(buf, td)
 
 	_, err := buf.WriteTo(w)

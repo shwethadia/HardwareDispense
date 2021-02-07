@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/shwethadia/BOOKINGAPI/pkg/config"
-	"github.com/shwethadia/BOOKINGAPI/pkg/handlers"
-	"github.com/shwethadia/BOOKINGAPI/pkg/render"
+	"github.com/shwethadia/BOOKINGAPI/internal/config"
+	"github.com/shwethadia/BOOKINGAPI/internal/handlers"
+	"github.com/shwethadia/BOOKINGAPI/internal/render"
 )
 
 const portNumber = ":8080"
