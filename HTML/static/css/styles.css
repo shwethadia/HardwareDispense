@@ -1,0 +1,29 @@
+.my-footer{
+    height: 2.6em;
+    background-color: rgb(1, 31, 44);
+    margin-top: 1.5em;
+    padding: 0.5em;
+    color: beige;
+    text-align: center;
+    font-size: large;
+  }
+
+  .room-image{
+      max-width: 50%;
+  }
+
+  .notie-container{
+    box-shadow: none;
+  }
+
+  .navbar-dark .navbar-brand {
+    color: rgb(94, 161, 116);
+    }
+ 
+ .navbar-dark .navbar-nav .nav-link {
+    color: rgb(94, 161, 116);
+
+}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: rgb(0, 255, 85);
+}
